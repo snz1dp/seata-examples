@@ -1,4 +1,4 @@
-package com.snz1.seatas.storage;
+package com.snz1.seatas.account;
 
 import java.io.PrintStream;
 import java.util.Map;
@@ -65,14 +65,14 @@ public class Application {
 
   private static class ApplicationBanner implements Banner {
 
-    // figlet Storage |sed -e "s/\\\\/\\\\\\\\/g" | sed -e "s/^/\"/" | sed -e "s/\$/\", \/\//g"
+    // figlet Account |sed -e "s/\\\\/\\\\\\\\/g" | sed -e "s/^/\"/" | sed -e "s/\$/\", \/\//g"
     private static final String[] BANNER = { //
-      " ____  _                             ", //
-      "/ ___|| |_ ___  _ __ __ _  __ _  ___ ", //
-      "\\___ \\| __/ _ \\| '__/ _` |/ _` |/ _ \\", //
-      " ___) | || (_) | | | (_| | (_| |  __/", //
-      "|____/ \\__\\___/|_|  \\__,_|\\__, |\\___|", //
-      "                          |___/      ", //
+      "    _                             _   ", //
+      "   / \\   ___ ___ ___  _   _ _ __ | |_ ", //
+      "  / _ \\ / __/ __/ _ \\| | | | '_ \\| __|", //
+      " / ___ \\ (_| (_| (_) | |_| | | | | |_ ", //
+      "/_/   \\_\\___\\___\\___/ \\__,_|_| |_|\\__|", //
+      "                                      ", //
     };
 
     private static final String APP_BOOT = ":: Cloud Native Microservice :: ";

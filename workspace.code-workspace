@@ -5,6 +5,9 @@
 		},
 		{
 			"path": "storage"
+		},
+		{
+			"path": "account"
 		}
 	],
 	"settings": {

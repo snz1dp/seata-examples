@@ -7,8 +7,8 @@
     <version>1.4.1</version>
   </parent>
 
-  <artifactId>storage</artifactId>
-  <name>storage ${project.version}</name>
+  <artifactId>order</artifactId>
+  <name>order ${project.version}</name>
 
   <properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -88,7 +88,7 @@
   </dependencies>
 
   <build>
-		<finalName>seatas-examples-storage</finalName>
+		<finalName>seatas-examples-order</finalName>
 		<plugins>
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
