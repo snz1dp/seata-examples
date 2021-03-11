@@ -7,6 +7,7 @@ import com.snz1.seatas.account.service.AccountService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -14,6 +15,7 @@ import java.math.BigDecimal;
 
 @Slf4j
 @RestController
+@RequestMapping(path = "moneis")
 public class AccountController {
 
   @Autowired
