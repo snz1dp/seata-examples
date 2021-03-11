@@ -74,6 +74,11 @@
       <artifactId>mybatis-plus</artifactId>
     </dependency>
 
+		<dependency>
+			<groupId>com.baomidou</groupId>
+			<artifactId>mybatis-plus-boot-starter</artifactId>
+		</dependency>
+
     <!-- Snz1 Utility -->
     <dependency>
       <groupId>com.snz1</groupId>

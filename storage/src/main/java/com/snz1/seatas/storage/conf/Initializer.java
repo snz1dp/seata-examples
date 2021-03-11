@@ -1,4 +1,4 @@
-package com.snz1.seatas.storage.config;
+package com.snz1.seatas.storage.conf;
 
 import java.sql.Connection;
 import java.sql.DriverManager;

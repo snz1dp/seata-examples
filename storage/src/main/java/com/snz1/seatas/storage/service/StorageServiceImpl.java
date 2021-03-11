@@ -47,7 +47,7 @@ public class StorageServiceImpl implements StorageService {
     try {
       connection = dataSource.getConnection();
       connection.setAutoCommit(false);
-      String sql = "update storage_tbl set count = ?" + "    where id = ? and commodity_code = ?";
+      String sql = "update Storage_tbll set count = ?" + "    where id = ? and commodity_code = ?";
       preparedStatement = connection.prepareStatement(sql);
       preparedStatement.setInt(1, 100);
       preparedStatement.setLong(2, 1);
@@ -84,7 +84,7 @@ public class StorageServiceImpl implements StorageService {
     try {
       connection = dataSource.getConnection();
       connection.setAutoCommit(false);
-      String sql = "delete from storage_tbl where  count = ? and commodity_code = ?";
+      String sql = "delete from Storage_tbll where  count = ? and commodity_code = ?";
       preparedStatement = connection.prepareStatement(sql);
       preparedStatement.setInt(1, 11);
       preparedStatement.setString(2, "2001");
@@ -105,7 +105,6 @@ public class StorageServiceImpl implements StorageService {
       preparedStatement.close();
     }
   }
-
 
 }
 
