@@ -1,5 +1,6 @@
 package com.snz1.seatas.account.data;
 
+import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
 
 import java.math.BigDecimal;
@@ -13,6 +14,7 @@ import lombok.Data;
 public class Account {
 
   @ApiModelProperty("账户ID")
+  @TableId
   private String account_id;
 
   @ApiModelProperty("账户金额")

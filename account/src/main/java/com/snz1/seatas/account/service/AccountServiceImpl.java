@@ -5,6 +5,7 @@ import com.snz1.seatas.account.dao.AccountMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import io.seata.spring.annotation.GlobalLock;
 import io.seata.spring.annotation.GlobalTransactional;
 
 import java.math.BigDecimal;
@@ -26,6 +27,12 @@ public class AccountServiceImpl implements AccountService {
     if (ERROR_USER_ID.equals(userId)) {
       throw new RuntimeException("account branch exception");
     }
+  }
+
+  @Override
+  @GlobalLock
+  public Account get(String userId) {
+    return accountMapper.selectById(userId);
   }
 
 }

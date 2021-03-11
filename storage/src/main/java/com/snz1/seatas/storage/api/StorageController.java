@@ -4,6 +4,7 @@ import com.snz1.seatas.storage.data.Storage;
 import com.snz1.seatas.storage.service.StorageService;
 import io.seata.core.context.RootContext;
 
+import org.apache.commons.lang3.Validate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -30,7 +31,9 @@ public class StorageController {
 
   @GetMapping(value = "/{commodityCode}")
   public Return<Storage> getById(@PathVariable("commodityCode") String id) {
-    return Return.wrap(storageService.get(id));
+    Storage s = storageService.get(id);
+    Validate.notNull(s);
+    return Return.wrap(s);
   }
 
   @PostMapping(value = "/batch_update")
