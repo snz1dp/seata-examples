@@ -1,5 +1,6 @@
 package com.snz1.seatas.storage.data;
 
+import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
 
 import io.swagger.annotations.ApiModel;
@@ -11,9 +12,7 @@ import lombok.Data;
 @Data
 public class Storage {
 
-  @ApiModelProperty("唯一ID（自动生成")
-  private Integer id;
-
+  @TableId
   @ApiModelProperty("商品代码")
   private String commodity_code;
 

@@ -7,8 +7,6 @@ import io.seata.spring.annotation.GlobalTransactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
-
 import javax.sql.DataSource;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -24,14 +22,13 @@ public class StorageServiceImpl implements StorageService {
   private DataSource dataSource;
 
   public void deduct(String commodityCode, int count) {
-    QueryWrapper<Storage> query = new QueryWrapper<>();
-    Storage storage = storageMapper.selectOne(query);
+    Storage storage = get(commodityCode);
     storage.setCount(storage.getCount() - count);
     storageMapper.updateById(storage);
   }
 
   @GlobalLock
-  public Storage get(Integer id) {
+  public Storage get(String id) {
     return storageMapper.selectById(id);
   }
 

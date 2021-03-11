@@ -6,7 +6,7 @@ public interface StorageService {
     
   void deduct(String commodityCode, int count);
 
-  Storage get(Integer id);
+  Storage get(String id);
 
   void batchUpdate() throws Exception;
 

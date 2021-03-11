@@ -1,11 +1,11 @@
 
 -- 撤销日志
 --如果后面的语句返回true则忽略指定n条sql语句
-$if$ign$1$ select count(*) > 0 from pg_class where relname = 'seq_undo_log_id';
+$IF$IGN$1$ select count(*) > 0 from pg_class where relname = 'seq_undo_log_id';
 
 create sequence seq_undo_log_id;
 
-$if$ign$2$ select count(*) > 0 from pg_class where relname = 'undo_log';
+$IF$IGN$2$ select count(*) > 0 from pg_class where relname = 'undo_log';
 
 create table undo_log (
    id                int8              not null default nextval('seq_undo_log_id'::regclass),

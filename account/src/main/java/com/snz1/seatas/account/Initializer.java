@@ -1,4 +1,4 @@
-package com.snz1.seatas.storage.conf;
+package com.snz1.seatas.account;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -6,29 +6,27 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
-import javax.annotation.PostConstruct;
-
 import org.apache.commons.lang3.StringUtils;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.core.env.Environment;
-import org.springframework.stereotype.Component;
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.SpringApplicationRunListener;
+import org.springframework.context.ConfigurableApplicationContext;
+import org.springframework.core.env.ConfigurableEnvironment;
 
 import lombok.extern.slf4j.Slf4j;
 
 @Slf4j
-@Component
-public class Initializer {
+public class Initializer implements SpringApplicationRunListener {
 
-  @Autowired
-  private Environment environment;
+  public Initializer(SpringApplication application, String[]  args){
+  }
 
-  @PostConstruct
-  public void createDatabase() {
+  @Override
+  public void environmentPrepared(ConfigurableEnvironment environment) {
     String databaseUsername = environment.getProperty("spring.datasource.username", "postgres");
     String databasePassword = environment.getProperty("spring.datasource.password", "123456");
     String postgresHost = environment.getProperty("PG_HOST", "localhost");
     Integer postgresPort = Integer.parseInt(environment.getProperty("PG_PORT", "5432"));
-    String databaseName = environment.getProperty("PG_DATABASE", "seatas_example_storage");
+    String databaseName = environment.getProperty("PG_DATABASE", "seatas_example_account");
 
     Connection conn;
     String jdbcURL = String.format("jdbc:postgresql://%s:%d/postgres", postgresHost, postgresPort);
@@ -56,7 +54,31 @@ public class Initializer {
         conn.close();
       } catch(Throwable e) {
       }
-    }
+    }    
+  }
+
+  @Override
+  public void starting() {
+  }
+
+  @Override
+  public void contextPrepared(ConfigurableApplicationContext context) {
+  }
+
+  @Override
+  public void contextLoaded(ConfigurableApplicationContext context) {
+  }
+
+  @Override
+  public void started(ConfigurableApplicationContext context) {
+  }
+
+  @Override
+  public void running(ConfigurableApplicationContext context) {
+  }
+
+  @Override
+  public void failed(ConfigurableApplicationContext context, Throwable exception) {
   }
 
 }

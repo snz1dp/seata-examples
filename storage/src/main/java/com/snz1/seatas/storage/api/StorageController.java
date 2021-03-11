@@ -12,7 +12,7 @@ import gateway.api.Return;
 
 import java.sql.SQLException;
 
-@RequestMapping("/api/storage")
+@RequestMapping("/inventories")
 @RestController
 public class StorageController {
 
@@ -28,8 +28,8 @@ public class StorageController {
     return Return.success();
   }
 
-  @GetMapping(value = "/{id}")
-  public Return<Storage> getById(@PathVariable("id") Integer id) {
+  @GetMapping(value = "/{commodityCode}")
+  public Return<Storage> getById(@PathVariable("commodityCode") String id) {
     return Return.wrap(storageService.get(id));
   }
 

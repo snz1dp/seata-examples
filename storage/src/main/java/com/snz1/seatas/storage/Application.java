@@ -25,6 +25,7 @@ import org.springframework.core.env.Environment;
 @EnableAutoConfiguration
 @SpringBootApplication
 @com.snz1.annotation.Snz1dpApplication //启用Snz1p应用配置
+@com.snz1.annotation.EnableDruid // 启用Druid数据源
 @com.snz1.annotation.EnableAutoCaching //启用默认缓存配置
 @com.snz1.annotation.EnableWebMvc // 启用Mvc默认配置
 @com.snz1.annotation.EnableAutoScheme // 自动构建数据库
