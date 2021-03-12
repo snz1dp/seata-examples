@@ -5,9 +5,6 @@ import com.snz1.seatas.account.dao.AccountMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import io.seata.spring.annotation.GlobalLock;
-import io.seata.spring.annotation.GlobalTransactional;
-
 import java.math.BigDecimal;
 
 @Service
@@ -19,7 +16,6 @@ public class AccountServiceImpl implements AccountService {
   private AccountMapper accountMapper;
 
   @Override
-  @GlobalTransactional
   public void debit(String userId, BigDecimal num) {
     Account account = accountMapper.selectById(userId);
     account.setAccount_money(account.getAccount_money().subtract(num));
@@ -30,7 +26,6 @@ public class AccountServiceImpl implements AccountService {
   }
 
   @Override
-  @GlobalLock
   public Account get(String userId) {
     return accountMapper.selectById(userId);
   }

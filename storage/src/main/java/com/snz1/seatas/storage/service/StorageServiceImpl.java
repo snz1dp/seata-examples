@@ -2,8 +2,6 @@ package com.snz1.seatas.storage.service;
 
 import com.snz1.seatas.storage.data.Storage;
 import com.snz1.seatas.storage.dao.StorageMapper;
-import io.seata.spring.annotation.GlobalLock;
-import io.seata.spring.annotation.GlobalTransactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -27,7 +25,6 @@ public class StorageServiceImpl implements StorageService {
     storageMapper.updateById(storage);
   }
 
-  @GlobalLock
   public Storage get(String id) {
     return storageMapper.selectById(id);
   }
@@ -37,7 +34,6 @@ public class StorageServiceImpl implements StorageService {
    *
    * @throws SQLException
    */
-  @GlobalTransactional
   public void batchUpdate() throws SQLException {
     Connection connection = null;
     PreparedStatement preparedStatement = null;
@@ -74,7 +70,6 @@ public class StorageServiceImpl implements StorageService {
    *
    * @throws SQLException
    */
-  @GlobalTransactional
   public void batchDelete() throws SQLException {
     Connection connection = null;
     PreparedStatement preparedStatement = null;
