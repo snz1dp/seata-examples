@@ -5,6 +5,8 @@ import com.snz1.seatas.storage.dao.StorageMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import io.seata.spring.annotation.GlobalLock;
+
 import javax.sql.DataSource;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -25,6 +27,7 @@ public class StorageServiceImpl implements StorageService {
     storageMapper.updateById(storage);
   }
 
+  @GlobalLock
   public Storage get(String id) {
     return storageMapper.selectById(id);
   }
