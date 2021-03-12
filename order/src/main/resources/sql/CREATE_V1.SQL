@@ -34,5 +34,5 @@ CREATE TABLE order_tbl
     commodity_code   varchar(255)      not null,
     count            int4              not null,
     money            int4              not null,
-    constraint pk_undo_log primary key (id)
+    constraint pk_order_tbl primary key (id)
 );
