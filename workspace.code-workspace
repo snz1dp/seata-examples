@@ -8,6 +8,9 @@
 		},
 		{
 			"path": "account"
+		},
+		{
+			"path": "order"
 		}
 	],
 	"settings": {

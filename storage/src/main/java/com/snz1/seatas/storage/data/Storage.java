@@ -1,5 +1,7 @@
 package com.snz1.seatas.storage.data;
 
+import java.io.Serializable;
+
 import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
 
@@ -10,7 +12,9 @@ import lombok.Data;
 @ApiModel("商品库存")
 @TableName("storage_tbl")
 @Data
-public class Storage {
+public class Storage implements Serializable {
+
+  private static final long serialVersionUID = -8764302385524740895L;
 
   @TableId
   @ApiModelProperty("商品代码")

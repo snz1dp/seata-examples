@@ -36,10 +36,10 @@ public class AccountController {
     return Return.wrap(acc);
   }
 
-  @PostMapping(value = "{userId}")
-  public Result debit(@PathVariable("userId") String userId, @RequestParam BigDecimal orderMoney) {
+  @PostMapping(value = "{userId}/debit")
+  public Result debit(@PathVariable("userId") String userId, @RequestParam BigDecimal money) {
     log.info("account XID = {}", RootContext.getXID());
-    accountService.debit(userId, orderMoney);
+    accountService.debit(userId, money);
     return Return.success();
   }
 
