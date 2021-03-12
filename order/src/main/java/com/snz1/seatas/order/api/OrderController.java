@@ -12,6 +12,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import gateway.api.Result;
+import gateway.api.Return;
+
 @Slf4j
 @RestController
 @RequestMapping(path = "debit")
@@ -22,8 +25,8 @@ public class OrderController {
 
   @ApiOperation("商品下单")
   @PostMapping
-  public void debit(
-    @ApiParam("账户ID，可用值：1001、1002，使用1002时会抛出异常")
+  public Result debit(
+    @ApiParam("账户ID，可用值：1001、1002（抛出异常）")
     @RequestParam String account_id,
     @ApiParam("商品代码，可用值：2001")
     @RequestParam String commodity_code,
@@ -32,6 +35,7 @@ public class OrderController {
   ) {
     log.info("order XID: {}", RootContext.getXID());
     orderService.create(account_id, commodity_code, count);
+    return Return.success();
   }
 
 }

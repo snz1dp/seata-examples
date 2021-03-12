@@ -2,5 +2,7 @@
 .settings
 .classpath
 .factorypath
+.run
 target
 out
+*.DS_Store

@@ -1,16 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-  <modelVersion>4.0.0</modelVersion>
-  <parent>
-    <groupId>com.snz1.seatas</groupId>
-    <artifactId>examples-parent</artifactId>
-    <version>1.4.1</version>
-  </parent>
+	<modelVersion>4.0.0</modelVersion>
+	<parent>
+		<groupId>com.snz1.seatas</groupId>
+		<artifactId>examples-parent</artifactId>
+		<version>1.4.1</version>
+	</parent>
 
-  <artifactId>storage</artifactId>
-  <name>storage ${project.version}</name>
+	<groupId>com.snz1.seatas</groupId>
+	<artifactId>storage</artifactId>
+	<name>storage ${project.version}</name>
+	<packaging>jar</packaging>
 
-  <properties>
+	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 		<maven.compiler.encoding>UTF-8</maven.compiler.encoding>
@@ -19,13 +21,14 @@
 		<start-class>com.snz1.seatas.storage.Application</start-class>
 	</properties>
 
-  <dependencies>
-    <dependency>
-      <groupId>org.projectlombok</groupId>
-      <artifactId>lombok</artifactId>
-    </dependency>
+	<dependencies>
+		<!-- Lombok -->
+		<dependency>
+			<groupId>org.projectlombok</groupId>
+			<artifactId>lombok</artifactId>
+		</dependency>
 
-    <!-- aspectjweaver -->
+		<!-- aspectjweaver -->
 		<dependency>
 			<groupId>org.aspectj</groupId>
 			<artifactId>aspectjweaver</artifactId>
@@ -37,7 +40,7 @@
 			<artifactId>spring-boot-starter-web</artifactId>
 		</dependency>
 
-    <!-- FreeMarker -->
+		<!-- FreeMarker -->
 		<dependency>
 			<groupId>org.freemarker</groupId>
 			<artifactId>freemarker</artifactId>
@@ -60,39 +63,49 @@
 			<groupId>io.seata</groupId>
 			<artifactId>seata-spring-boot-starter</artifactId>
 		</dependency>
-	
-    <!-- Mybatis -->
-    <dependency>
-      <groupId>org.mybatis.spring.boot</groupId>
-      <artifactId>mybatis-spring-boot-starter</artifactId>
-      <version>2.0.1</version>
-    </dependency>
 
-    <!-- Mybatis Plus -->
-    <dependency>
-      <groupId>com.baomidou</groupId>
-      <artifactId>mybatis-plus</artifactId>
-    </dependency>
+		<!-- Mybatis -->
+		<dependency>
+			<groupId>org.mybatis.spring.boot</groupId>
+			<artifactId>mybatis-spring-boot-starter</artifactId>
+			<version>2.0.1</version>
+		</dependency>
+
+		<!-- Mybatis Plus -->
+		<dependency>
+			<groupId>com.baomidou</groupId>
+			<artifactId>mybatis-plus</artifactId>
+		</dependency>
 
 		<dependency>
 			<groupId>com.baomidou</groupId>
 			<artifactId>mybatis-plus-boot-starter</artifactId>
 		</dependency>
 
-    <!-- Snz1 Utility -->
-    <dependency>
-      <groupId>com.snz1</groupId>
-      <artifactId>utility</artifactId>
-    </dependency>
+		<!-- Snz1 Utility -->
+		<dependency>
+			<groupId>com.snz1</groupId>
+			<artifactId>utility</artifactId>
+		</dependency>
 
-  </dependencies>
+	</dependencies>
 
-  <build>
+	<build>
 		<finalName>seatas-examples-storage</finalName>
 		<plugins>
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
+				<configuration>
+					<mainClass>${start-class}</mainClass>
+				</configuration>
+				<executions>
+					<execution>
+						<goals>
+							<goal>repackage</goal>
+						</goals>
+					</execution>
+				</executions>
 			</plugin>
 
 			<plugin>

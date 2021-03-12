@@ -7,8 +7,10 @@
     <version>1.4.1</version>
   </parent>
 
+  <groupId>com.snz1.seatas</groupId>
   <artifactId>order</artifactId>
   <name>order ${project.version}</name>
+	<packaging>jar</packaging>
 
   <properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -93,6 +95,16 @@
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
+				<configuration>
+					<mainClass>${start-class}</mainClass>
+				</configuration>
+				<executions>
+					<execution>
+						<goals>
+							<goal>repackage</goal>
+						</goals>
+					</execution>
+				</executions>
 			</plugin>
 
 			<plugin>
