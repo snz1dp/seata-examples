@@ -53,10 +53,13 @@ public class ClientConfig {
 		return this.createRetrofit(this.accountServUrl, jwtAppToken, jwtPrivateKey, jwtTokenLiveSeconds);
 	}
 
+	// 创建Retrofit对象
   private Retrofit createRetrofit(String service_url, String jwtAppToken2, String jwtPrivateKey2,
 			Integer jwtTokenLiveSeconds2) {
 		if (!StringUtils.endsWith(service_url, "/"))
 			service_url += "/";
+		
+		// 添加请求拦截器
 		return RetrofitUtils.createRetrofit(service_url, jwtAppToken, jwtPrivateKey, jwtTokenLiveSeconds, //
 			new Interceptor() {
 

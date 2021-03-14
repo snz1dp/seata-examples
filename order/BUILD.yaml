@@ -38,7 +38,7 @@ clean:
 service:
   # 端口定义
   ports:
-  - 9191:80
+  - 9192:80
 
   # 环境变量
   envs:
@@ -89,6 +89,12 @@ develop:
     confserv:
       install: true
       version: 2.0.3
+    apps:
+    - install: true
+      name: seatas
+      namespace: snz1dp-app
+      url: http://gitlab.snz1.cn:2007/download/seata/seatas-1.4.1.tar.gz
+      version: 1.4.1
     snz1dp:
       admin:
         email: root@localhost.com

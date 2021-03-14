@@ -1,7 +1,6 @@
 package com.snz1.seatas.storage;
 
 import java.io.PrintStream;
-import java.util.Map;
 
 import org.springframework.boot.Banner;
 import org.springframework.boot.SpringApplication;
@@ -10,11 +9,7 @@ import org.springframework.boot.ansi.AnsiOutput;
 import org.springframework.boot.ansi.AnsiStyle;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.boot.context.event.ApplicationReadyEvent;
-import org.springframework.boot.context.event.ApplicationStartedEvent;
-import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.EnableAspectJAutoProxy;
-import org.springframework.context.event.EventListener;
 import org.springframework.core.env.Environment;
 
 /**
@@ -35,33 +30,6 @@ public class Application {
     SpringApplication app = new SpringApplication(Application.class);
     app.setBanner(new ApplicationBanner());
     app.run(args);
-  }
-
-  @EventListener(ApplicationStartedEvent.class)
-  public void onStarted(ApplicationStartedEvent event) {
-    Map<String, Observe> observes = event.getApplicationContext().getBeansOfType(Observe.class);
-    for (Map.Entry<String, Observe> ent : observes.entrySet()) {
-      ent.getValue().onStarted(event.getApplicationContext());
-    }
-  }
-
-  @EventListener(ApplicationReadyEvent.class)
-  public void onReady(ApplicationReadyEvent event) {
-    Map<String, Observe> observes = event.getApplicationContext().getBeansOfType(Observe.class);
-    for (Map.Entry<String, Observe> ent : observes.entrySet()) {
-      ent.getValue().onReady(event.getApplicationContext());
-    }
-  }
-
-  // 应用观察接口
-  public static interface Observe {
-
-    // 启动完成
-    void onStarted(ApplicationContext ctx);
-
-    // 准备就绪
-    void onReady(ApplicationContext ctx);
-
   }
 
   private static class ApplicationBanner implements Banner {
