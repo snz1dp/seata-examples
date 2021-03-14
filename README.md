@@ -190,3 +190,9 @@ curl -X POST "http://localhost:9192/seatas/example/order/debit?account_id=1002&c
 ```
 
 > 使用账号`1002`请求时会因为异常抛出导致所有事务回滚。
+
+## 3.参考文档
+
+- https://yq.aliyun.com/articles/608863
+- https://xiaomi-info.github.io/2020/01/02/distributed-transaction/
+- https://zhuanlan.zhihu.com/p/100279671
