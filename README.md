@@ -183,6 +183,10 @@ snz1dpctl make standalone restart
 curl -X POST "http://localhost:9192/seatas/example/order/debit?account_id=1001&commodity_code=2001&count=1"
 ```
 
+> 使用账号`1001`请求正确完成所有事务。
+
 ```cmd
 curl -X POST "http://localhost:9192/seatas/example/order/debit?account_id=1002&commodity_code=2001&count=1"
 ```
+
+> 使用账号`1002`请求时会因为异常抛出导致所有事务回滚。
