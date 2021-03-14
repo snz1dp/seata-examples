@@ -186,5 +186,3 @@ curl -X POST "http://localhost:9192/seatas/example/order/debit?account_id=1001&c
 ```cmd
 curl -X POST "http://localhost:9192/seatas/example/order/debit?account_id=1002&commodity_code=2001&count=1"
 ```
-
-> 长沙慧码至一信息科技有限公司。
