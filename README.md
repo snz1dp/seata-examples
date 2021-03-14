@@ -89,7 +89,7 @@ new okhttp3.Interceptor() {
 
 ### 2.3、开发测试
 
-测试之前请先准备好`Docker`环境，然后根据您的操作系统类型下载工具文件：
+开始之前请先准备好`Docker`环境，然后根据您的操作系统类型下载工具文件：
 
 - [Windows amd64](http://gitlab.snz1.cn:2007/download/snz1dp/snz1dpctl-windows-amd64.exe)
 - [Linux amd64](http://gitlab.snz1.cn:2007/download/snz1dp/snz1dpctl-linux-amd64)
